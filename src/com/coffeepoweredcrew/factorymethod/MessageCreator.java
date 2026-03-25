@@ -1,0 +1,25 @@
+package com.coffeepoweredcrew.factorymethod;
+
+import com.coffeepoweredcrew.factorymethod.message.Message;
+
+/**
+ * This is our abstract "creator".
+ * The abstract method createMessage() has to be implemnted by 
+ * its subclasses.
+ */
+
+public abstract class MessageCreator {
+	
+	public Message getMessage() {
+		Message msg = createMessage();
+		
+		msg.addDefaultHeader();
+		msg.encrypt();
+		
+		return msg;
+	}
+	
+	//Factory method
+	public abstract Message createMessage();
+
+}
